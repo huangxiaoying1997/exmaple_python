@@ -26,6 +26,7 @@ def get_result(nums, mapping):
     if len(nums) == 1:
         return [c for c in mapping.get(nums[0], [])]
 
+    # 递归求解
     t = get_result(nums[1:], mapping)
     a = mapping.get(nums[0], [])
 
@@ -36,9 +37,9 @@ def get_result(nums, mapping):
 
 
 if __name__ == '__main__':
-    in_put = input('请输入数字列表（如：[2,3]),且每个数字必须从[0-9]取值：')
-    in_put = in_put.replace("[", "").replace("]", "").replace(",", " ")
-    nums = [int(i) for i in in_put.split()]
+    nums = input('请输入数字列表（如：[2,3]),且每个数字必须从[0-9]取值：')
+    nums = nums.replace("[", "").replace("]", "").replace(",", " ")
+    nums = [int(i) for i in nums.split()]
 
     for i in range(len(nums)):
         if nums[i] < 0 or nums[i] > 9:
